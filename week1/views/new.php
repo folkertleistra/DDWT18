@@ -33,7 +33,41 @@
                     <h1><?= $page_title ?></h1>
                     <h5><?= $page_subtitle ?></h5>
                     <p><?= $page_content ?></p>
-                    <!-- Put your form here -->
+                    <form action=<?= $form_action ?> method="POST">
+                        <div class="form-group row">
+                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="inputName" name="Name" value="<?php if (isset($serie_info)){echo $serie_info['name'];} ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputCreator" class="col-sm-2 col-form-label">Creator</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="inputCreator" name="Creator" value="<?php if (isset($serie_info)){echo $serie_info['creator'];} ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputSeasons" class="col-sm-2 col-form-label">Seasons</label>
+                            <div class="col-sm-10">
+                                <input type="number" id="inputCreator" name="Seasons" value="<?php if (isset($serie_info)){echo $serie_info['seasons'];} ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <label for="inputAbstract" class="">Abstract</label>
+                                <textarea class="form-control" id="inputAbstract"  name="Abstract" required><?php if (isset($serie_info)){echo $serie_info['abstract'];} ?></textarea>
+                            </div>
+                        </div>
+                        <?php if($form_action == '/DDWT18/week1/edit') : ?>
+                            <input type="hidden" id="serie_id" name="serie_id" value="<?= $serie_info['id'] ?>">
+                        <?php endif; ?>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary"><?=
+                                    $submit_btn ?></button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <!-- Right column -->
