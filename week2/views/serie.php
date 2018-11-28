@@ -15,6 +15,7 @@
     </head>
     <body>
         <!-- Menu -->
+
         <?= $navigation ?>
 
         <!-- Content -->
@@ -43,19 +44,27 @@
                             <th scope="row">Number of seasons</th>
                             <td><?= $nbr_seasons ?></td>
                         </tr>
+                        <tr>
+                            <th scope="row">Added by user</th>
+                            <td><?= $added_by ?></td>
+                        </tr>
                         </tbody>
                     </table>
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <a href="/DDWT18/week2/edit/?serie_id=<?= $serie_id ?>" role="button" class="btn btn-warning">Edit</a>
+                    <?php if ($display_buttons) { ?>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <a href="/DDWT18/week2/edit/?serie_id=<?=
+                                $serie_id ?>" role="button" class="btn btn-warning">Edit</a>
+                            </div>
+                            <div class="col-sm-2">
+                                <form action="/DDWT18/week2/remove/" method="POST">
+                                    <input type="hidden" value="<?= $serie_id
+                                    ?>" name="serie_id">
+                                    <button type="submit" class="btn btn-danger">Remove</button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="col-sm-2">
-                            <form action="/DDWT18/week2/remove/" method="POST">
-                                <input type="hidden" value="<?= $serie_id ?>" name="serie_id">
-                                <button type="submit" class="btn btn-danger">Remove</button>
-                            </form>
-                        </div>
-                    </div>
+                    <?php } ?>
 
                 </div>
 
