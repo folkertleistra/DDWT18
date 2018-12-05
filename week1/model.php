@@ -80,6 +80,7 @@ function get_navigation($navigation){
     $navigation_exp .= '<div class="collapse navbar-collapse" id="navbarSupportedContent">';
     $navigation_exp .= '<ul class="navbar-nav mr-auto">';
     foreach ($navigation as $name => $info) {
+        print_r($info[1]);
         if ($info[1]){
             $navigation_exp .= '<li class="nav-item active">';
             $navigation_exp .= '<a class="nav-link" href="'.$info[0].'">'.$name.'</a>';
